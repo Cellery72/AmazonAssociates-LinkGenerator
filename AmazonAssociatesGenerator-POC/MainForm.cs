@@ -10,6 +10,8 @@ namespace AmazonAssociatesGenerator_POC
 {
     public partial class MainForm : Form
     {
+
+        private string referralLink = "";
         public MainForm()
         {
             InitializeComponent();
@@ -19,9 +21,11 @@ namespace AmazonAssociatesGenerator_POC
         // private functions
         // *****************
 
-        private void toggleLinks()
+        private void toggleLinks(bool enabled)
         {
-
+            this.linkReferral.Visible = enabled;
+            this.linkTester.Visible = enabled;
+            this.linkCopy.Visible = enabled;
         }
         private bool ValidDetails(int country, string ID, string ASIN, out string errorMsg)
         {
@@ -60,16 +64,57 @@ namespace AmazonAssociatesGenerator_POC
             {
                 MessageBox.Show(this,output,"Opps, you forgot something!",MessageBoxButtons.OK,MessageBoxIcon.Error);
             }
+            else
+            {
+
+                switch (cbCountry.SelectedIndex)
+                {
+                    case 0:
+                        {
+                            // CANADA
+                            this.referralLink = "http://www.amazon.ca/dp/" + tbASIN.Text + "/?tag=" + tbTrackingID.Text;
+                            break;
+                        }
+                    case 1:
+                        {
+                            // UNITED STATES
+                            this.referralLink = "http://www.amazon.com/dp/" + tbASIN.Text + "/?tag=" + tbTrackingID.Text;
+                            break;
+                        }
+                }
+                this.toggleLinks(true);
+            }
         }
 
         private void linkJustin_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             System.Diagnostics.Process.Start("https://justinellery.ca");
         }
-
         private void linkGithub_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             System.Diagnostics.Process.Start("https://github.com/Cellery72/AmazonAssociates-LinkGenerator");
+        }
+        private void linkTester_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            string outLink="";
+            if (cbCountry.SelectedIndex==0)
+            {
+                outLink = Properties.Resources.testLinkCanada;
+            }
+            else if(cbCountry.SelectedIndex==1)
+            {
+                outLink = Properties.Resources.testLinkUnitedStates;
+            }
+            // open the tester link
+            System.Diagnostics.Process.Start(outLink);
+        }
+        private void linkCopy_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Clipboard.SetText(this.referralLink);
+        }
+        private void linkReferral_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            System.Diagnostics.Process.Start(this.referralLink);
         }
     }
 }

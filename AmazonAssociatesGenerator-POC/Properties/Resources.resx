@@ -121,6 +121,9 @@
   <data name="amazon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\amazon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="a_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\a-icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="testLinkCanada" xml:space="preserve">
     <value>https://associates.amazon.ca/home/tools/linkchecker</value>
   </data>

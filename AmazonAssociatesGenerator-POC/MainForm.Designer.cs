@@ -123,6 +123,7 @@
             this.linkTester.TabStop = true;
             this.linkTester.Text = "Test your Link!";
             this.linkTester.Visible = false;
+            this.linkTester.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkTester_LinkClicked);
             // 
             // linkCopy
             // 
@@ -135,6 +136,7 @@
             this.linkCopy.TabStop = true;
             this.linkCopy.Text = "Copy Generated Link";
             this.linkCopy.Visible = false;
+            this.linkCopy.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkCopy_LinkClicked);
             // 
             // linkJustin
             // 
@@ -214,6 +216,7 @@
             this.linkReferral.TabStop = true;
             this.linkReferral.Text = "Your Referral Link!";
             this.linkReferral.Visible = false;
+            this.linkReferral.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkReferral_LinkClicked);
             // 
             // customErr
             // 
@@ -239,6 +242,8 @@
             this.Controls.Add(this.lblTrackingID);
             this.Controls.Add(this.cbCountry);
             this.Controls.Add(this.lblCountry);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "MainForm";

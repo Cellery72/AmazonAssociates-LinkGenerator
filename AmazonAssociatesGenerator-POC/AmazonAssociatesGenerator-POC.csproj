@@ -82,5 +82,8 @@
   <ItemGroup>
     <None Include="Resources\amazon.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\a-icon.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
